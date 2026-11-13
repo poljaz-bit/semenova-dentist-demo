@@ -140,8 +140,8 @@ const footerHTML = () => `
 
 /* modal */
 const modalHTML = () => `
-<div class="modal" id="bookModal" aria-hidden="true">
-  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="bmt">
+<div class="modal" id="bookModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="bmt">
+  <div class="modal-card">
     <div class="modal-head">
       <div>
         <h3 id="bmt">Записаться на консультацию</h3>
@@ -152,8 +152,8 @@ const modalHTML = () => `
     ${bookFormHTML('modal')}
   </div>
 </div>
-<div class="modal" id="videoModal" aria-hidden="true">
-  <div class="modal-card video-modal-card" role="dialog" aria-modal="true" aria-labelledby="vt">
+<div class="modal" id="videoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="vt">
+  <div class="modal-card video-modal-card">
     <div class="modal-head">
       <div><h3 id="vt">Видео-приветствие</h3></div>
       <button class="modal-close" id="videoClose" aria-label="Закрыть">×</button>

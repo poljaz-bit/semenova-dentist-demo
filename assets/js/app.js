@@ -116,7 +116,9 @@ function initAcc(){
 }
 
 /* booking modal */
+let lastBookTrigger = null;
 function openModal(service){
+  lastBookTrigger = document.activeElement;
   const m = $('#bookModal');
   m.classList.add('is-open');
   m.setAttribute('aria-hidden','false');
@@ -131,9 +133,11 @@ function openModal(service){
 }
 function closeModal(){
   const m = $('#bookModal');
+  const wasOpen = m.classList.contains('is-open');
   m.classList.remove('is-open');
   m.setAttribute('aria-hidden','true');
   document.body.classList.remove('no-scroll');
+  if(wasOpen && lastBookTrigger && document.contains(lastBookTrigger)) lastBookTrigger.focus();
 }
 
 /* video modal */
@@ -278,7 +282,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   document.addEventListener('click', (e)=>{
     const b = e.target.closest('[data-book]');
-    if(b){ e.preventDefault(); openModal(b.dataset.service); }
+    if(b){
+      e.preventDefault();
+      $('#mobileMenu').classList.remove('is-open');
+      document.body.classList.remove('no-scroll');
+      openModal(b.dataset.service);
+    }
     if(e.target.closest('#modalClose')) closeModal();
     if(e.target.id === 'bookModal') closeModal();
     if(e.target.closest('[data-video]')){ e.preventDefault(); openVideo(); }
@@ -290,6 +299,21 @@ document.addEventListener('DOMContentLoaded', ()=>{
       closeModal(); closeVideo();
       $('#mobileMenu').classList.remove('is-open');
       document.body.classList.remove('no-scroll');
+    }
+    if(e.key === 'Tab'){
+      const open = ['#bookModal', '#videoModal']
+        .map(s => document.querySelector(s))
+        .find(m => m && m.classList.contains('is-open'));
+      if(!open) return;
+      const focusables = [...open.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([type="hidden"]), select, textarea, [tabindex]:not([tabindex="-1"])'
+      )].filter(el => el.offsetWidth || el.offsetHeight || el === document.activeElement);
+      if(!focusables.length) return;
+      const first = focusables[0], last = focusables[focusables.length - 1];
+      const active = document.activeElement;
+      if(!open.contains(active)){ e.preventDefault(); first.focus(); }
+      else if(e.shiftKey && active === first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && active === last){ e.preventDefault(); first.focus(); }
     }
   });
 
