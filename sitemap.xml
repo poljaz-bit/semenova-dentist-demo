@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://example.ru/</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://example.ru/o-vrache</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.ru/uslugi</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.ru/uslugi/lechenie-zubov</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.ru/uslugi/lechenie-kanalov</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.ru/uslugi/esteticheskaya-restavraciya</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.ru/uslugi/koronki-i-viniry</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.ru/uslugi/protezirovanie</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.ru/uslugi/gigiena</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.ru/uslugi/lechenie-desen</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.ru/uslugi/konsultaciya</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.ru/do-posle</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.ru/otzyvy</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.ru/ceny</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.ru/faq</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.ru/kontakty</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.ru/politika</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.ru/standarty</loc><lastmod>2026-11-11</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.ru/pravila</loc><lastmod>2026-11-11</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.ru/pravovaya</loc><lastmod>2026-11-11</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://example.ru/garantii</loc><lastmod>2026-11-11</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>
