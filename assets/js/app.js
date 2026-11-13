@@ -186,15 +186,56 @@ function bindForms(){
       const phone = form.querySelector('input[name="phone"]');
       const name = form.querySelector('input[name="name"]');
       const cb = form.querySelector('input[type="checkbox"]');
+      const setErr = (field, msg) => {
+        const wrap = field ? field.closest('.field') : null;
+        if(!wrap) return;
+        let el = wrap.querySelector('.field-err');
+        if(!msg){
+          if(el){ el.textContent = ''; el.classList.remove('is-on'); }
+          return;
+        }
+        if(!el){
+          el = document.createElement('p');
+          el.className = 'field-err';
+          el.setAttribute('role', 'status');
+          wrap.appendChild(el);
+        }
+        el.textContent = msg;
+        el.classList.add('is-on');
+      };
       let bad = false;
       [name, phone].forEach(f=>{
         f.style.borderColor = '';
-        if(!f.value.trim()){ f.style.borderColor = '#D46A5A'; bad = true; }
+        setErr(f, '');
       });
-      if(phone.value.replace(/\D/g,'').length < 10){
-        phone.style.borderColor = '#D46A5A'; bad = true;
+      const consent = form.querySelector('.consent');
+      if(consent){
+        consent.style.color = '';
+        const old = consent.querySelector('.field-err');
+        if(old){ old.textContent = ''; old.classList.remove('is-on'); }
       }
-      if(cb && !cb.checked){ bad = true; cb.parentElement.style.color = '#B4523F'; }
+      if(!name.value.trim()){
+        name.style.borderColor = '#D46A5A';
+        setErr(name, 'Напишите имя, как к вам обращаться');
+        bad = true;
+      }
+      if(phone.value.replace(/\D/g,'').length < 10){
+        phone.style.borderColor = '#D46A5A';
+        setErr(phone, 'Введите телефон: 10 цифр после +7');
+        bad = true;
+      }
+      if(cb && !cb.checked && consent){
+        let el = consent.querySelector('.field-err');
+        if(!el){
+          el = document.createElement('p');
+          el.className = 'field-err';
+          el.setAttribute('role', 'status');
+          consent.appendChild(el);
+        }
+        el.textContent = 'Отметьте согласие на обработку данных';
+        el.classList.add('is-on');
+        bad = true;
+      }
       if(bad) return;
       form.querySelector('.btn[type="submit"]').textContent = 'Отправлено';
       form.querySelector('.btn[type="submit"]').style.background = '#1D6B5E';

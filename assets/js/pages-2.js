@@ -169,7 +169,6 @@ const servicePage = (slug) => {
     <div class="chips" style="margin-top:22px">
       ${s.meta.map(m=>`<span class="tag">${m}</span>`).join('')}
       <span class="tag">${s.duration}</span>
-      <span class="tag">${s.price}</span>
     </div>
     <div class="hero-actions" style="margin-top:26px;margin-bottom:0">
       <button class="btn btn-primary" data-book data-service="${s.title}">${ic('calendar')} Записаться</button>
@@ -181,10 +180,12 @@ const servicePage = (slug) => {
 
 <section class="section tight">
   <div class="wrap">
-    <div class="info-grid">
+    <div class="svc-facts">
       <div class="info-box rv"><b>Кому подходит</b><p>${s.forWhom}</p></div>
-      <div class="info-box rv"><b>Срок</b><p>${s.duration}</p></div>
-      <div class="info-box rv"><b>Ориентир по цене</b><p>${s.price}. Итоговая стоимость — после диагностики, письменно.</p></div>
+      <div class="svc-facts-side">
+        <div class="info-box rv"><b>Срок</b><p>${s.duration}</p></div>
+        <div class="info-box rv"><b>Ориентир по цене</b><p>${s.price}. Итоговая стоимость — после диагностики, письменно.</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -377,28 +378,39 @@ const reviewsPage = () => `
   <div class="wrap">
     <div class="crumbs"><a href="#/">Главная</a><span>/</span> Отзывы</div>
     <h1>Отзывы пациентов</h1>
-    <p class="lead">Отзывы о приёме публикуются только на независимых площадках. Здесь их не собрать
-    и не отредактировать — что написали пациенты, то и остаётся.</p>
+    <p class="lead">Отзывы о приёме живут на независимых площадках: их нельзя отредактировать или
+    удалить — что написали пациенты, то и остаётся. Первый ещё не написан, и он может быть вашим.</p>
   </div>
 </section>
 
 <section class="section tight" style="padding-top:0">
   <div class="wrap">
-    <div class="info-grid" style="margin-bottom:30px">
-      <div class="info-box"><b>Читать отзывы</b><p>Профиль на ПроДокторов и профиль клиники
-        в Яндексе — там же можно сравнить с другими врачами района.</p></div>
-      <div class="info-box"><b>Оставить отзыв</b><p>Если были на приёме — расскажите, как всё прошло.
-        Критику читаю так же внимательно, как благодарности.</p></div>
-      <div class="info-box"><b>Площадки</b><p>Профиль врача на ПроДокторов: образование, стаж,
-        категории — подтверждены площадкой по документам.</p></div>
+    <div class="book-card rv">
+      <h3 style="margin-bottom:8px">Были на приёме — расскажите другим</h3>
+      <p style="font-size:.98rem;color:var(--ink-78);line-height:1.6;max-width:70ch">Ваш отзыв помогает
+      следующему пациенту выбрать врача и помогает мне становиться лучше. Критику читаю так же
+      внимательно, как благодарности.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
+        <a class="btn btn-primary" href="${DOCTOR.wa}" target="_blank" rel="noopener">${ic('wa')} Отзыв через WhatsApp</a>
+        <a class="btn btn-ghost" href="${DOCTOR.prodoctorov}" target="_blank" rel="noopener">${ic('star')} Профиль на ПроДокторов ↗</a>
+        <a class="btn btn-ghost" href="${DOCTOR.yandex}" target="_blank" rel="noopener">${ic('pin')} Клиника в Яндексе ↗</a>
+      </div>
+      <p class="form-note" style="margin-top:18px">Профиль врача на ПроДокторов: образование, стаж,
+      категории — подтверждены площадкой по документам.</p>
     </div>
-    <div style="display:flex;gap:12px;flex-wrap:wrap">
-      <a class="btn btn-primary" href="${DOCTOR.prodoctorov}" target="_blank" rel="noopener">${ic('star')} Профиль на ПроДокторов ↗</a>
-      <a class="btn btn-ghost" href="${DOCTOR.yandex}" target="_blank" rel="noopener">${ic('pin')} Клиника в Яндексе ↗</a>
+    <div class="two-col" style="margin-top:18px;gap:18px">
+      <div class="info-box rv"><b>Читать отзывы</b><p>Отзывы о приёме — на ПроДокторов и в карточке
+      клиники в Яндексе. Там же можно сравнить с другими врачами района.</p></div>
+      <div class="info-box rv"><b>Что уже подтверждено</b><p>МГМСУ 1996, ординатура, повышение
+      квалификации и высшая категория — сверены площадкой по документам.</p></div>
     </div>
-    <div class="book-card rv" style="margin-top:28px">
+    <div class="book-card rv" style="margin-top:18px">
       <h3 style="margin-bottom:8px">Ответ на критику</h3>
-      <p style="font-size:.92rem;color:var(--ink-70);line-height:1.6;max-width:80ch">Если что-то пошло не так — напишите напрямую.
+      <p style="font-size:.95rem;color:var(--ink-78);line-height:1.7;max-width:70ch">Если что-то пошло
+      не так — напишите напрямую:
+      <a href="${DOCTOR.wa}" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:3px">WhatsApp</a> ·
+      <a href="${DOCTOR.phoneHref}" style="color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:3px">${DOCTOR.phone}</a> ·
+      <a href="mailto:${DOCTOR.email}" style="color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:3px">${DOCTOR.email}</a>.
       Разберу ситуацию и, если нужна коррекция, сделаю её. Отрицательные отзывы не удаляю и не прошу удалять.</p>
     </div>
   </div>
