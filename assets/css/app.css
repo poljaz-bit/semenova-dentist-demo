@@ -124,6 +124,10 @@
 @media(max-width:560px){.form-grid{grid-template-columns:1fr}}
 .consent,.wl-check{display:flex;gap:11px;align-items:flex-start;font-size:.88rem;color:var(--ink-64);line-height:1.55}
 .consent input,.wl-check input{width:19px;height:19px;margin-top:1px;accent-color:var(--accent);flex:none}
+.plan-note{display:flex;gap:10px;align-items:flex-start;margin:2px 0 14px;padding:12px 14px;border-radius:12px;
+  background:var(--sage);border:1px solid rgba(29,107,94,.18);border-left:3px solid var(--accent);
+  color:var(--deep);font-size:.88rem;line-height:1.55}
+.plan-note svg{width:18px;height:18px;flex:none;margin-top:2px}
 .form-note{font-size:.82rem;color:var(--ink-64);line-height:1.5;max-width:75ch}
 .form-ok{display:none;padding:20px;border-radius:14px;background:var(--sage);border:1px solid rgba(29,107,94,.2);
   font-size:.98rem;color:var(--deep);line-height:1.55}

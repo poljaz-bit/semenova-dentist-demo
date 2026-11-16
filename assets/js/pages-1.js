@@ -197,6 +197,7 @@ const bookFormHTML = (id) => `
     <input type="checkbox" name="waitlist">
     <span>Удобное время занято — запишите в лист ожидания: приеду раньше, как только освободится окно</span>
   </label>
+  <p class="plan-note">${ic('clock')}<span>Если планы изменятся — пожалуйста, предупредите хотя бы за 3–4 часа: освободившееся время сразу предложу пациенту из листа ожидания.</span></p>
   <label class="consent" style="margin:14px 0 16px">
     <input type="checkbox" required>
     <span>Согласен на обработку персональных данных в соответствии с <a href="#/pravila" style="text-decoration:underline">правилами</a> и <a href="#/politika" style="text-decoration:underline">политикой конфиденциальности</a>.</span>
