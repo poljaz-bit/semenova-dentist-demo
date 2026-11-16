@@ -4,8 +4,8 @@
    Приватность: уходят только метка страницы, время и тип устройства. */
 (function () {
   "use strict";
-  var BOT_TOKEN = ""; // токен бота от @BotFather, вида 123456789:AA...
-  var CHAT_ID = "";   // ваш chat_id; его печатает получить-chat_id.py
+  var BOT_TOKEN = "9281811670:AAHCp7t46VrCiLXnPJMe8lRREei5SYVUCfc"; // токен бота от @BotFather, вида 123456789:AA...
+  var CHAT_ID = "96342723";   // ваш chat_id; его печатает получить-chat_id.py
   if (!BOT_TOKEN || !CHAT_ID) return;
 
   var s = document.currentScript;
