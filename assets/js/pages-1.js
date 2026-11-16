@@ -193,13 +193,17 @@ const bookFormHTML = (id) => `
     <div class="field full"><label for="${id}-c">Комментарий (необязательно)</label>
       <textarea id="${id}-c" name="comment" placeholder="Например: боюсь лечения, нужен первый визит без вмешательства"></textarea></div>
   </div>
+  <label class="wl-check" style="margin:2px 0 12px">
+    <input type="checkbox" name="waitlist">
+    <span>Удобное время занято — запишите в лист ожидания: приеду раньше, как только освободится окно</span>
+  </label>
   <label class="consent" style="margin:14px 0 16px">
     <input type="checkbox" required>
     <span>Согласен на обработку персональных данных в соответствии с <a href="#/pravila" style="text-decoration:underline">правилами</a> и <a href="#/politika" style="text-decoration:underline">политикой конфиденциальности</a>.</span>
   </label>
   <button class="btn btn-primary btn-block" type="submit">Отправить заявку</button>
   <p class="form-note" style="margin-top:12px;text-align:center">Перезвоню в течение рабочего дня и подберём удобное время.</p>
-  <div class="form-ok" data-ok>Спасибо, заявка принята! Перезвоню в течение рабочего дня, чтобы согласовать время визита.</div>
+  <div class="form-ok" data-ok data-ok-wl="Спасибо! Вы в листе ожидания: как только время освободится, вам позвонят в первую очередь.">Спасибо, заявка принята! Перезвоню в течение рабочего дня, чтобы согласовать время визита.</div>
 </form>`;
 
 /* ---------- shared: star rating ---------- */

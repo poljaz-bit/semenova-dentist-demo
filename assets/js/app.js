@@ -189,7 +189,8 @@ function bindForms(){
       e.preventDefault();
       const phone = form.querySelector('input[name="phone"]');
       const name = form.querySelector('input[name="name"]');
-      const cb = form.querySelector('input[type="checkbox"]');
+      // согласие — единственный обязательный чекбокс; чекбокс листа ожидания required не имеет
+      const cb = form.querySelector('input[type="checkbox"][required]');
       const setErr = (field, msg) => {
         const wrap = field ? field.closest('.field') : null;
         if(!wrap) return;
@@ -243,7 +244,13 @@ function bindForms(){
       if(bad) return;
       form.querySelector('.btn[type="submit"]').textContent = 'Отправлено';
       form.querySelector('.btn[type="submit"]').style.background = '#1D6B5E';
-      form.querySelector('[data-ok]')?.classList.add('is-on');
+      const ok = form.querySelector('[data-ok]');
+      if(ok){
+        if(ok.dataset.base === undefined) ok.dataset.base = ok.textContent;
+        const wl = form.querySelector('input[name="waitlist"]');
+        ok.textContent = (wl && wl.checked && ok.dataset.okWl) ? ok.dataset.okWl : ok.dataset.base;
+        ok.classList.add('is-on');
+      }
       setTimeout(()=>{ if($('#bookModal').classList.contains('is-open')) closeModal(); }, 2400);
     });
     const phone = form.querySelector('input[name="phone"]');
