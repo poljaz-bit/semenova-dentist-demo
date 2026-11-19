@@ -72,6 +72,7 @@ const headerHTML = () => `
   <a class="mm-link" href="#/otzyvy">Отзывы <small>пациенты</small></a>
   <a class="mm-link" href="#/ceny">Цены <small>прайс</small></a>
   <a class="mm-link" href="#/standarty">Стандарты <small>Минздрава</small></a>
+  <a class="mm-link" href="#/mikrobiota">Полость рта и здоровье <small>наука</small></a>
   <a class="mm-link" href="#/faq">Вопросы <small>FAQ</small></a>
   <a class="mm-link" href="#/kontakty">Контакты <small>как добраться</small></a>
   <div class="mm-foot">
@@ -101,6 +102,7 @@ const footerHTML = () => `
         <a href="#/otzyvy">Отзывы</a>
         <a href="#/ceny">Цены</a>
         <a href="#/standarty">Стандарты лечения</a>
+        <a href="#/mikrobiota">Полость рта и здоровье</a>
         <a href="#/faq">Вопросы и ответы</a>
       </div>
       <div>
@@ -198,9 +200,13 @@ const bookFormHTML = (id) => `
     <span>Удобное время занято — запишите в лист ожидания: приеду раньше, как только освободится окно</span>
   </label>
   <p class="plan-note">${ic('clock')}<span>Если планы изменятся — пожалуйста, предупредите хотя бы за 3–4 часа: освободившееся время сразу предложу пациенту из листа ожидания.</span></p>
-  <label class="consent" style="margin:14px 0 16px">
+  <label class="consent" style="margin:14px 0 10px">
     <input type="checkbox" required>
     <span>Согласен на обработку персональных данных в соответствии с <a href="#/pravila" style="text-decoration:underline">правилами</a> и <a href="#/politika" style="text-decoration:underline">политикой конфиденциальности</a>.</span>
+  </label>
+  <label class="consent" style="margin:0 0 16px">
+    <input type="checkbox" name="newsletter">
+    <span>Хочу получать полезные сообщения: напоминания о профилактике, советы по уходу и новости — отписка в любой момент.</span>
   </label>
   <button class="btn btn-primary btn-block" type="submit">Отправить заявку</button>
   <p class="form-note" style="margin-top:12px;text-align:center">Перезвоню в течение рабочего дня и подберём удобное время.</p>
@@ -354,6 +360,16 @@ const homePage = () => `
       <div class="step"><span class="step-n">04</span><b>План и смета</b><p>Этапы, сроки, приоритеты и стоимость — письменно, чтобы можно было подумать.</p></div>
       <div class="step"><span class="step-n">05</span><b>Лечение и поддержка</b><p>Работаем по плану. После — контроль и ответы на вопросы, не только в кабинете.</p></div>
     </div>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <a class="std-strip rv" href="#/mikrobiota">
+      ${ic('shield')}
+      <div><b>Полость рта и здоровье организма</b><span>Что наука знает о связи дёсен с сердцем, мозгом и обменом веществ — и что из этого полезно вам.</span></div>
+      ${ic('arrow')}
+    </a>
   </div>
 </section>
 

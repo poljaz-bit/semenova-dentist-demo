@@ -173,13 +173,15 @@
 .svc-hero-img{border-radius:24px;overflow:hidden;aspect-ratio:4/3;box-shadow:var(--shadow)}
 .svc-hero-img img{width:100%;height:100%;object-fit:cover}
 .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+/* v3.7: двухколоночная сетка для чётного числа карточек (пробиотики на /mikrobiota) */
+.info-grid.g2{grid-template-columns:repeat(2,1fr)}
 .svc-facts{display:grid;grid-template-columns:2fr 1fr;gap:18px;align-items:start}
 .svc-facts-side{display:grid;gap:18px}
 @media(max-width:900px){.svc-facts{grid-template-columns:1fr}}
 .info-box{background:var(--white);border:1px solid var(--line-soft);border-radius:var(--radius-sm);padding:24px}
 .info-box b{display:block;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-64);margin-bottom:10px;font-weight:700}
 .info-box p{font-size:.98rem;color:var(--ink-78);line-height:1.58}
-@media(max-width:900px){.svc-hero{grid-template-columns:1fr}.svc-hero-img{order:-1}.info-grid{grid-template-columns:1fr}}
+@media(max-width:900px){.svc-hero{grid-template-columns:1fr}.svc-hero-img{order:-1}.info-grid{grid-template-columns:1fr}.info-grid.g2{grid-template-columns:1fr}}
 .timeline{display:grid;gap:0;margin-top:8px}
 .tl{display:grid;grid-template-columns:64px 1fr;gap:20px;padding-bottom:28px;position:relative}
 .tl::before{content:"";position:absolute;left:31px;top:42px;bottom:0;width:1px;background:var(--line)}
