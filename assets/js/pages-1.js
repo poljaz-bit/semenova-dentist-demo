@@ -71,7 +71,7 @@ const headerHTML = () => `
   <a class="mm-link" href="#/do-posle">До / после <small>кейсы</small></a>
   <a class="mm-link" href="#/otzyvy">Отзывы <small>пациенты</small></a>
   <a class="mm-link" href="#/ceny">Цены <small>прайс</small></a>
-  <a class="mm-link" href="#/standarty">Стандарты <small>Минздрава</small></a>
+  <a class="mm-link" href="#/podhod">Подход <small>зубы и организм</small></a>
   <a class="mm-link" href="#/mikrobiota">Полость рта и здоровье <small>наука</small></a>
   <a class="mm-link" href="#/faq">Вопросы <small>FAQ</small></a>
   <a class="mm-link" href="#/kontakty">Контакты <small>как добраться</small></a>
@@ -101,7 +101,7 @@ const footerHTML = () => `
         <a href="#/do-posle">До / после</a>
         <a href="#/otzyvy">Отзывы</a>
         <a href="#/ceny">Цены</a>
-        <a href="#/standarty">Стандарты лечения</a>
+        <a href="#/podhod">Подход к лечению</a>
         <a href="#/mikrobiota">Полость рта и здоровье</a>
         <a href="#/faq">Вопросы и ответы</a>
       </div>
