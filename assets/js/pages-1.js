@@ -76,7 +76,7 @@ const headerHTML = () => `
   <a class="mm-link" href="#/faq">Вопросы <small>FAQ</small></a>
   <a class="mm-link" href="#/kontakty">Контакты <small>как добраться</small></a>
   <div class="mm-foot">
-    <button class="btn btn-primary btn-block" data-book>Записаться на консультацию</button>
+    <button class="btn btn-primary btn-block" data-book>Записаться на приём</button>
     <a class="btn btn-ghost btn-block" href="${DOCTOR.phoneHref}">Позвонить ${DOCTOR.phone}</a>
     <div class="mm-note">${DOCTOR.address} · ${DOCTOR.hours}</div>
   </div>
@@ -146,7 +146,7 @@ const modalHTML = () => `
   <div class="modal-card">
     <div class="modal-head">
       <div>
-        <h3 id="bmt">Записаться на консультацию</h3>
+        <h3 id="bmt">Записаться на приём</h3>
       </div>
       <button class="modal-close" id="modalClose" aria-label="Закрыть">×</button>
     </div>
@@ -180,7 +180,7 @@ const bookFormHTML = (id) => `
       <input id="${id}-phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
     <div class="field full"><label for="${id}-svc">Что беспокоит</label>
       <select id="${id}-svc" name="service">
-        <option>Просто консультация</option>
+        <option>Осмотр и план лечения</option>
         ${SERVICES.map(s=>`<option>${s.title}</option>`).join('')}
         <option>Острая боль — срочно</option>
       </select></div>
@@ -226,13 +226,12 @@ const homePage = () => `
       <p class="lead hero-sub">Елена Вячеславовна Семёнова — терапевт и ортопед с опытом более 30 лет.
       Диагностика, письменный план лечения и стоимость, которая не меняется в процессе.</p>
       <div class="hero-actions">
-        <button class="btn btn-primary" data-book>${ic('calendar')} Записаться на консультацию</button>
+        <button class="btn btn-primary" data-book>${ic('calendar')} Записаться на приём</button>
         <a class="btn btn-ghost" href="${DOCTOR.phoneHref}">${ic('phone')} ${DOCTOR.phone}</a>
       </div>
       <div class="hero-facts">
         <div class="fact"><b>30 лет</b><span>стажа: терапия и ортопедия</span></div>
         <div class="fact"><b>Высшая</b><span>категория врача</span></div>
-        <div class="fact"><b>1 000 ₽</b><span>консультация с письменным планом</span></div>
       </div>
     </div>
     <div class="hero-media">
@@ -287,7 +286,7 @@ const homePage = () => `
       <div class="about-list">
         <div class="about-item"><b>образование</b><span>МГМСУ им. А.И. Евдокимова</span></div>
         <div class="about-item"><b>специальности</b><span>стоматология терапевтическая, ортопедическая</span></div>
-        <div class="about-item"><b>специализация</b><span>гигиена и отбеливание (ZOOM, Klox Fast&Mild), эндодонтия, реставрация, микропротезирование</span></div>
+        <div class="about-item"><b>специализация</b><span>гигиена и отбеливание Zoom, эндодонтия, реставрация, микропротезирование</span></div>
         <div class="about-item"><b>стаж</b><span>более 30 лет клинической практики</span></div>
         <div class="about-item"><b>подход</b><span>минимальное вмешательство, сохранение своих тканей</span></div>
       </div>
@@ -378,10 +377,11 @@ const homePage = () => `
     <div class="rv">
       <span class="eyebrow">Клиника</span>
       <h2>Принимаю в клинике<br>«Моя Улыбка» на Удальцова</h2>
-      <p class="lead" style="margin-top:16px">Кабинет с микроскопом, рядом — КЛКТ-томограф и интраоральный сканер:
-      снимки и цифровые слепки делаю на месте, за один визит, без поездок по другим клиникам.</p>
+      <p class="lead" style="margin-top:16px">Кабинет с оборудованием для лечения под увеличением, рядом —
+      КЛКТ-томограф и интраоральный сканер: снимки и цифровые слепки делаю на месте, за один визит,
+      без поездок по другим клиникам.</p>
       <p style="margin-top:14px;font-size:.98rem;color:var(--ink-78);line-height:1.6;max-width:52ch">Клиника работает
-      с 2012 года — лицензия ЛО-77-41-004821 от 11.04.2012. Все виды лечения здесь проходят с микроскопом,
+      с 2012 года — лицензия ЛО-77-41-004821 от 11.04.2012. Лечение проходит под увеличением,
       диагностика — на КТ и 3D-сканере.</p>
       <div class="clinic-actions">
         <a class="btn btn-ghost" href="#/kontakty">Как добраться ${ic('arrow')}</a>
@@ -390,12 +390,12 @@ const homePage = () => `
     </div>
     <div class="clinic-collage rv">
       <figure class="cl-main">
-        <img src="assets/img/clinic/kabinet-1.webp" alt="Кабинет клиники «Моя Улыбка» — стоматологическая установка и микроскоп">
+        <img src="assets/img/clinic/kabinet-1.webp" alt="Кабинет клиники «Моя Улыбка» — стоматологическая установка">
         <figcaption>кабинет</figcaption>
       </figure>
       <figure>
-        <img src="assets/img/clinic/mikroskop.webp" alt="Медицинский микроскоп для лечения каналов">
-        <figcaption>микроскоп</figcaption>
+        <img src="assets/img/clinic/ustanovka.webp" alt="Стоматологическая установка в кабинете клиники">
+        <figcaption>установка</figcaption>
       </figure>
       <figure>
         <img src="assets/img/clinic/kt.webp" alt="КЛКТ-томограф для 3D-снимков">

@@ -70,11 +70,15 @@
 
 /* pricelist */
 .price-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
-.price-row{display:flex;align-items:baseline;gap:10px;padding:16px 0;border-bottom:1px solid var(--line-soft)}
+/* строка прайса: название — точечный лидер — цена; примечание <small> — отдельным элементом
+   после цены. Переносы разрешены на всех ширинах: если название и цена не влезают в строку,
+   цена уходит на следующую строку и встаёт к правому краю колонки (margin-left:auto),
+   а примечание остаётся под ними. Лидер не короче 24 px. */
+.price-row{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:10px;padding:16px 0;border-bottom:1px solid var(--line-soft)}
 .price-row .nm{font-size:1rem;letter-spacing:-.01em}
-.price-row .nm small{display:block;font-size:.84rem;color:var(--ink-64);letter-spacing:0;margin-top:2px}
-.price-row .ln{flex:1;border-bottom:1px dotted rgba(24,37,34,.2);transform:translateY(-4px)}
-.price-row .vl{font-size:1rem;font-weight:700;letter-spacing:-.02em;white-space:nowrap}
+.price-row small{flex-basis:100%;font-size:.875rem;color:var(--ink-64);letter-spacing:0;margin-top:2px}
+.price-row .ln{flex:1 1 24px;min-width:24px;border-bottom:1px dotted rgba(24,37,34,.2);transform:translateY(-4px)}
+.price-row .vl{font-size:1rem;font-weight:700;letter-spacing:-.02em;white-space:nowrap;margin-left:auto}
 @media(max-width:820px){.price-cols{grid-template-columns:1fr;gap:0}}
 
 /* accordion */
@@ -92,6 +96,29 @@
 .acc-item.is-open .acc-btn .pm::after{opacity:0;transform:scaleY(.2)}
 .acc-panel{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
 .acc-panel-in{padding:0 52px 26px 0;font-size:1.02rem;color:var(--ink-78);line-height:1.65}
+
+/* price accordion: рубрики прайса на native <details> — без JS-замера высоты */
+.price-acc{border-bottom:1px solid var(--line)}
+.price-acc:first-child{border-top:1px solid var(--line)}
+.price-acc summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:18px;
+  padding:24px 0;text-align:left;font-size:1.1rem;font-weight:600;letter-spacing:-.02em;transition:color .25s}
+.price-acc summary::-webkit-details-marker{display:none}
+.price-acc summary:hover{color:var(--accent)}
+.price-acc summary .pa-t{flex:1}
+.price-acc summary .pa-from{font-size:.9rem;font-weight:600;color:var(--ink-64);white-space:nowrap}
+.price-acc .pm{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;
+  flex:none;transition:transform .35s var(--ease),background .3s,border-color .3s;position:relative}
+.price-acc .pm::before,.price-acc .pm::after{content:"";position:absolute;background:currentColor;border-radius:2px}
+.price-acc .pm::before{width:10px;height:1.4px}
+.price-acc .pm::after{width:1.4px;height:10px;transition:opacity .25s,transform .35s}
+.price-acc[open] summary .pm{background:var(--deep);color:#fff;border-color:var(--deep)}
+.price-acc[open] summary .pm::after{opacity:0;transform:scaleY(.2)}
+/* единый правый край колонки цен: панель = summary (gap 18 + кнопка 28 = 46px) — отступ только
+   справа. Отступ слева не нужен: строки начинаются там же, где название рубрики */
+.price-acc .acc-panel-in{padding:0 46px 26px 0}
+@media(max-width:640px){.price-acc .acc-panel-in{padding:0 46px 22px 0}}
+/* под открытой рубрикой одна линия — сама рубрика, а не последняя строка */
+.price-acc[open] .price-row:last-child{border-bottom:0}
 
 /* CTA band */
 .cta-band{position:relative;background:var(--deep);color:#fff;border-radius:30px;padding:clamp(34px,5.2vw,60px);
@@ -169,7 +196,8 @@
 
 /* service detail */
 .svc-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(26px,4vw,54px);align-items:center;
-  padding:clamp(22px,3.2vw,36px) 0 clamp(32px,4.2vw,50px)}
+  /* только вертикальные отступы: блок несёт класс .wrap, и полная запись padding обнулила бы его боковые поля */
+  padding-block:clamp(22px,3.2vw,36px) clamp(32px,4.2vw,50px)}
 .svc-hero-img{border-radius:24px;overflow:hidden;aspect-ratio:4/3;box-shadow:var(--shadow)}
 .svc-hero-img img{width:100%;height:100%;object-fit:cover}
 .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -325,8 +353,10 @@ ul.checklist{padding:0;list-style:none}
 @media(min-width:861px){.footer-top{grid-template-columns:1.35fr .75fr 1.15fr 1fr}}
 .f-clinic{margin-top:16px;font-size:.84rem;line-height:1.5;color:rgba(255,255,255,.72)}
 .f-clinic b{display:block;color:#fff;font-family:'Lora',Georgia,serif;font-size:1.06rem;font-weight:500;letter-spacing:-.01em;margin-top:3px}
-.f-license{display:inline-block;margin-top:14px;padding:7px 13px;border-radius:9px;border:1px solid rgba(255,255,255,.16);
-  background:rgba(255,255,255,.05);font-size:.76rem;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,.78);
+/* плашка лицензии: селектор a.f-license такой же силы, как «.footer a» выше, и стоит позже —
+   поэтому его отступы и строчно-блочный вид побеждают правило «ссылка футера — блок» */
+a.f-license{display:inline-block;margin-top:14px;padding:7px 13px;border-radius:9px;border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.05);font-size:.76rem;font-weight:600;letter-spacing:.02em;color:rgba(255,255,255,.78);
   transition:border-color .3s,color .3s,background .3s}
 .f-license:hover{border-color:rgba(255,255,255,.4);color:#fff;background:rgba(255,255,255,.09)}
 .f-docs a{line-height:1.4}

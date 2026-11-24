@@ -31,16 +31,16 @@ const aboutPage = () => `
       <div class="rv">
         <span class="eyebrow">Образование</span>
         <h2 style="margin-bottom:18px">База и специализации</h2>
-        <p style="font-size:1.05rem;line-height:1.65;color:var(--ink-78);margin-bottom:8px;max-width:56ch">Специализируюсь на проведении гигиены полости рта, отбеливании (ZOOM, Klox Fast&amp;Mild),
+        <p style="font-size:1.05rem;line-height:1.65;color:var(--ink-78);margin-bottom:8px;max-width:56ch">Специализируюсь на проведении гигиены полости рта, отбеливании Zoom,
         лечении кариеса и некариозных поражений, эндодонтическом лечении с использованием Ni-Ti-инструментов,
         реставрации зубов фронтальной и жевательной групп, микропротезировании.</p>
         <div class="about-list">
           <div class="about-item"><b>вуз</b><span>Московский государственный медико-стоматологический университет имени А.И. Евдокимова</span></div>
           <div class="about-item"><b>клиника</b><span>Центр эстетической стоматологии «Моя Улыбка», Удальцова 5к1 — лицензия ЛО-77-41-004821 от 11.04.2012</span></div>
-          <div class="about-item"><b>гигиена</b><span>профессиональная гигиена, отбеливание ZOOM и Klox Fast&amp;Mild</span></div>
+          <div class="about-item"><b>гигиена</b><span>профессиональная гигиена, отбеливание Zoom</span></div>
           <div class="about-item"><b>терапия</b><span>лечение кариеса и некариозных поражений, эндодонтия с Ni-Ti-инструментами</span></div>
           <div class="about-item"><b>эстетика</b><span>реставрация зубов фронтальной и жевательной групп</span></div>
-          <div class="about-item"><b>ортопедия</b><span>коронки, виниры, микропротезирование вкладками, съёмные конструкции</span></div>
+          <div class="about-item"><b>ортопедия</b><span>коронки, виниры, микропротезирование вкладками</span></div>
           <div class="about-item"><b>развитие</b><span>профпереподготовка: интегративный подход в клинической практике (576 ч, 2025), системная нутрициология (576 ч, 2026)</span></div>
           <div class="about-item"><b>стаж</b><span>более 30 лет клинической практики</span></div>
           <div class="about-item"><b>принцип</b><span>минимальное вмешательство и сохранение своих тканей</span></div>
@@ -93,7 +93,7 @@ const aboutPage = () => `
 
 <section class="section tight">
   <div class="wrap"><div class="cta-band rv">
-    <div><h2>Познакомимся на консультации</h2>
+    <div><h2>Познакомимся на приёме</h2>
     <p>40–60 минут, осмотр, обсуждение и план. Без обязательств начинать лечение сразу.</p></div>
     <div class="cta-actions">
       <button class="btn btn-light" data-book>${ic('calendar')} Записаться</button>
@@ -127,11 +127,11 @@ const servicesPage = () => `
             <span class="svc-more">Подробнее ${ic('arrow')}</span>
           </div>
         </a>`).join('')}
-      <a class="svc svc-cta rv" href="#/uslugi/konsultaciya" data-book style="background:var(--deep);border-color:var(--deep);color:#fff">
+      <a class="svc svc-cta rv" href="#/pervyj-vizit" style="background:var(--deep);border-color:var(--deep);color:#fff">
         <div class="svc-body" style="justify-content:center;gap:14px;padding:34px">
           <span class="serif" style="font-style:italic;font-size:1.5rem;line-height:1.3">Не знаете,<br>с чего начать?</span>
-          <p style="color:rgba(255,255,255,.82);font-size:.97rem">Начните с консультации: осмотр, разбор ситуации и письменный план — 1 000 ₽.</p>
-          <span class="btn btn-light btn-sm" style="margin-top:6px">Записаться ${ic('arrow')}</span>
+          <p style="color:rgba(255,255,255,.82);font-size:.97rem">Начните с осмотра: разберём ситуацию и составим письменный план лечения.</p>
+          <span class="btn btn-light btn-sm" style="margin-top:6px">Как проходит первый визит ${ic('arrow')}</span>
         </div>
       </a>
     </div>
@@ -149,8 +149,8 @@ const servicesPage = () => `
       <div style="margin-top:22px"><a class="btn btn-ghost" href="#/ceny">Смотреть полный прайс ${ic('arrow')}</a></div></div>
       <div class="book-card rv">
         <h3 style="margin-bottom:6px">Не знаете, что нужно?</h3>
-        <p style="font-size:.88rem;color:var(--ink-55);margin-bottom:18px">Начните с консультации — 1 000 ₽. По итогу будет понятно, что делать и в каком порядке.</p>
-        <button class="btn btn-primary btn-block" data-book data-service="Просто консультация">Записаться на консультацию</button>
+        <p style="font-size:.88rem;color:var(--ink-55);margin-bottom:18px">Начните с осмотра: по итогу будет понятно, что делать и в каком порядке.</p>
+        <button class="btn btn-primary btn-block" data-book>Записаться на приём</button>
       </div>
     </div>
   </div>
@@ -218,8 +218,8 @@ const servicePage = (slug) => {
 
       <div class="section-head rv" style="margin:44px 0 18px"><span class="eyebrow">Стоимость</span><h2>Ориентир по ценам</h2></div>
       <div class="rv">
-        ${s.priceRows.map(([n,v])=>`<div class="price-row"><span class="nm">${n}</span><span class="ln"></span><span class="vl">${v}</span></div>`).join('')}
-        <p class="form-note" style="margin-top:14px">Цены ориентировочные. Полная смета — после диагностики, по этапам.</p>
+        ${s.priceRows.map(id=>priceRowHTML(priceRow(id))).join('')}
+        <p class="form-note" style="margin-top:14px">Цены — по прайсу клиники «Моя Улыбка». Полная смета — после диагностики, по этапам.</p>
       </div>
 
       <div class="two-col rv" style="margin-top:44px">
@@ -310,7 +310,7 @@ const casesPage = () => `
 
 <section class="section tight">
   <div class="wrap"><div class="cta-band rv">
-    <div><h2>Хотите оценить свою ситуацию?</h2><p>На консультации покажу снимки и объясню, что реально сделать именно в вашем случае.</p></div>
+    <div><h2>Хотите оценить свою ситуацию?</h2><p>На приёме покажу снимки и объясню, что реально сделать именно в вашем случае.</p></div>
     <div class="cta-actions">
       <button class="btn btn-light" data-book>${ic('calendar')} Записаться</button>
       <a class="btn btn-ghost" style="border-color:rgba(255,255,255,.3);color:#fff" href="${DOCTOR.phoneHref}">${DOCTOR.phone}</a>
@@ -344,8 +344,6 @@ const firstVisitPage = () => `
       <div class="pv-grid" style="margin-top:34px">
         <div class="pv-box rv"><b>Что взять с собой</b>
           <p>Снимки, если есть. Список лекарств, которые принимаете. Всё — больше ничего не нужно.</p></div>
-        <div class="pv-box rv"><b>Сколько стоит</b>
-          <p>1 000 ₽. Если начинаете лечение в течение месяца — консультация засчитывается в смету.</p></div>
         <div class="pv-box rv"><b>Чего не будет</b>
           <p>Никаких «у вас тут всё ужасно, надо срочно». Ни лечения без согласия, ни допродаж. Это принцип.</p></div>
       </div>
@@ -362,7 +360,7 @@ const firstVisitPage = () => `
     <aside class="aside">
       <div class="book-card rv">
         <h3 style="font-size:1.2rem;margin-bottom:6px">Записаться на первый визит</h3>
-        <p style="font-size:.85rem;color:var(--ink-55);margin-bottom:18px">40–60 минут · 1 000 ₽ · без лечения</p>
+        <p style="font-size:.85rem;color:var(--ink-55);margin-bottom:18px">40–60 минут · без лечения</p>
         ${bookFormHTML('visit')}
       </div>
       <div class="info-box rv" style="margin-top:14px">
@@ -379,7 +377,7 @@ const firstVisitPage = () => `
     <div><h2>Проще один раз прийти, чем год откладывать</h2>
     <p>Первый визит — самый лёгкий шаг: разговора и плана достаточно, чтобы понять, что делать дальше.</p></div>
     <div class="cta-actions">
-      <button class="btn btn-light" data-book data-service="Просто консультация">${ic('calendar')} Записаться</button>
+      <button class="btn btn-light" data-book>${ic('calendar')} Записаться</button>
       <a class="btn btn-ghost" style="border-color:rgba(255,255,255,.3);color:#fff" href="${DOCTOR.phoneHref}">${DOCTOR.phone}</a>
     </div>
   </div></div>
@@ -443,41 +441,45 @@ const pricesPage = () => `
   <div class="wrap">
     <div class="crumbs"><a href="#/">Главная</a><span>/</span> Цены</div>
     <h1>Цены на лечение</h1>
-    <p class="lead">Вилки «от» — потому что стоимость зависит от клинической ситуации. Точная смета составляется
-    письменно после диагностики и дальше не меняется без вашего согласия.</p>
+    <p class="lead">Цены — по прайсу клиники «Моя Улыбка». Вилки «от» означают, что стоимость зависит
+    от клинической ситуации: точная смета составляется письменно после диагностики и дальше
+    меняется только с вашего согласия.</p>
   </div>
 </section>
 
 <section class="section tight" style="padding-top:0">
   <div class="wrap">
-    <div class="two-col" style="gap:0 clamp(28px,4vw,56px)">
-      ${PRICES.map(block=>`
-        <div class="rv" style="margin-bottom:36px">
-          <h3 style="margin-bottom:8px">${block.cat}</h3>
-          ${block.rows.map(([n,v])=>`<div class="price-row"><span class="nm">${n}</span><span class="ln"></span><span class="vl">${v}</span></div>`).join('')}
-        </div>`).join('')}
+    <div class="rv" style="max-width:860px">
+      ${PRICE_LIST.map((b,i)=>`
+      <details class="price-acc"${i===0?' open':''}>
+        <summary><span class="pa-t">${b.cat}</span><span class="pa-from">${rubFrom(b)}</span><span class="pm" aria-hidden="true"></span></summary>
+        <div class="acc-panel-in">
+          ${b.rows.map(r=>priceRowHTML(r)).join('')}
+        </div>
+      </details>`).join('')}
     </div>
-    <div class="two-col" style="margin-top:14px">
-      <div class="info-box rv"><b>Что входит в консультацию</b>
-        <p>Осмотр всех зубов и дёсен, оценка прикуса и старых реставраций, снимки по показаниям,
-        письменный план с этапами и сметой. 40–60 минут.</p></div>
-      <div class="info-box rv"><b>Оплата и рассрочка</b>
-        <p>Оплата по этапам: платите за фактически выполненный этап. Для больших планов можно разбить
-        на 3–6 частей — обсуждаем индивидуально до начала лечения.</p></div>
+    <p class="plan-note rv" style="margin-top:26px">${ic('shield')}<span><b>Цены — по прайсу клиники «Моя Улыбка»</b> (ноябрь 2026).
+    Информация не является публичной офертой: точная стоимость определяется после осмотра и диагностики
+    и фиксируется письменно.</span></p>
+    <div class="two-col" style="margin-top:26px">
+      <div class="info-box rv"><b>Оплата по этапам</b>
+        <p>Платите за фактически выполненный этап. Порядок оплаты большого плана лечения
+        обсуждаем до начала работы.</p></div>
+      <div class="info-box rv"><b>Точный расчёт</b>
+        <p>На осмотре составлю смету по этапам — письменно, с вариантами и сроками.
+        Смета остаётся у вас: решение можно принимать спокойно.</p></div>
     </div>
     <a class="std-strip rv" href="#/podhod">
       ${ic('shield')}
       <div><b>Подход к лечению: современно и честно</b><span>Современные технологии и материалы, документально подтверждённое образование и взгляд на полость рта как часть организма.</span></div>
       ${ic('arrow')}
     </a>
-    <p class="form-note" style="margin-top:18px">Информация не является публичной офертой. Указанные цены — ориентировочные,
-    итоговая стоимость определяется после консультации и диагностики.</p>
   </div>
 </section>
 
 <section class="section tight">
   <div class="wrap"><div class="cta-band rv">
-    <div><h2>Нужна точная смета?</h2><p>На консультации посчитаю стоимость по этапам именно для вашей ситуации — 1 000 ₽.</p></div>
+    <div><h2>Нужна точная смета?</h2><p>Составлю на осмотре — по этапам, письменно, с вариантами и сроками.</p></div>
     <div class="cta-actions">
       <button class="btn btn-light" data-book>${ic('calendar')} Записаться</button>
       <a class="btn btn-ghost" style="border-color:rgba(255,255,255,.3);color:#fff" href="${DOCTOR.phoneHref}">${DOCTOR.phone}</a>
@@ -528,7 +530,7 @@ const approachPage = () => `
   <div class="wrap">
     <div class="two-col">
       <div class="info-box rv" style="align-self:stretch"><b>Слой первый: современная стоматология</b>
-        <p>Диагностика на КТ и внутриротовом 3D-сканере, лечение с микроскопом, материалы и методы
+        <p>Диагностика на КТ и внутриротовом 3D-сканере, лечение под увеличением, материалы и методы
         с подтверждённой исследованиями эффективностью. Каждому пациенту — письменный план и смета,
         которые остаются у него на руках. Как это выглядит по каждой услуге — в разделе
         <a href="#/uslugi" style="text-decoration:underline">«Услуги»</a>.</p></div>
@@ -703,12 +705,12 @@ const mikrobiotaPage = () => `
     <a class="std-strip rv" href="#/uslugi/gigiena">
       ${ic('tooth')}
       <div><b>Профессиональная гигиена — отправная точка</b><span>60–90 минут: ультразвук, Air Flow,
-      полировка и уход, подобранный под вашу ситуацию. От 6 500 ₽.</span></div>
+      полировка и уход, подобранный под вашу ситуацию.</span></div>
       ${ic('arrow')}
     </a>
     <p class="form-note" style="margin-top:16px">Страница основана на обзорах и клинических исследованиях
     2019–2026 годов из международных журналов (PubMed, Nature). Материалы носят информационный характер;
-    план ухода и лечения составляется на очной консультации.</p>
+      план ухода и лечения составляется на очном приёме.</p>
   </div>
 </section>
 
@@ -746,7 +748,7 @@ const contactsPage = () => `
       </div>
       <div class="clinic-gal rv">
         <figure><img src="assets/img/clinic/reseption.webp" alt="Ресепшн клиники «Моя Улыбка»"><figcaption>ресепшн</figcaption></figure>
-        <figure><img src="assets/img/clinic/kabinet-2.webp" alt="Стоматологический кабинет с микроскопом"><figcaption>кабинет с микроскопом</figcaption></figure>
+        <figure><img src="assets/img/clinic/ustanovka.webp" alt="Стоматологическая установка в кабинете клиники"><figcaption>установка</figcaption></figure>
         <figure><img src="assets/img/clinic/kt.webp" alt="КЛКТ-томограф в клинике"><figcaption>КЛКТ-томограф</figcaption></figure>
         <figure><img src="assets/img/clinic/kabinet-3.webp" alt="Терапевтический кабинет клиники"><figcaption>терапевтический кабинет</figcaption></figure>
         <figure><img src="assets/img/clinic/skaner.webp" alt="Интраоральный 3D-сканер"><figcaption>3D-сканер</figcaption></figure>
